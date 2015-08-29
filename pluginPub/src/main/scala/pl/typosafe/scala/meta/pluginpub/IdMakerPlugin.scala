@@ -20,7 +20,11 @@ class IdMakerPlugin(val global: Global) extends Plugin {
 
     override def newPhase(prev: Phase): Phase = new GlobalPhase(prev) {
       override def apply(unit: CompilationUnit): Unit = {
-        //let's play with unit.body...
+
+        if(unit.toString() == "Customer.scala") {
+          val x = unit.body
+
+        }
       }
 
       override def name: String = "idmakingphase"
