@@ -1,6 +1,6 @@
 package pl.typosafe.scala.meta.pub
 
-import pl.typosafe.scala.meta.pub.menu.{ Milk, Porter, Ale, Drink }
+import pl.typosafe.scala.meta.pub.menu._
 
 import scala.collection.SortedMap
 import scala.concurrent.duration.Duration
@@ -34,6 +34,11 @@ object Pub {
   }
 
   final def askBartender() = new Bartender
+
+  def isAlcoholic(d: Drink) = d match {
+    case _: Alcoholic => true
+    case _ => false
+  }
 
   def finalizeOrder(bt: Bartender): Seq[Drink] = bt.wholeOrder
 }
