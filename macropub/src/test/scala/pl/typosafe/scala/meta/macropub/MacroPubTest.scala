@@ -122,10 +122,11 @@ class MacroPubTest extends FlatSpec with Matchers {
 
 
   it should "check age from poassport" in {
+    val age = 23
     an[ToYoungToDrink] should be thrownBy testOrder() {
       story(new CustomerWithPassport(12)).order(_.order(Ale))
     }
-    story(new CustomerWithPassport(23)).order(_.order(Ale))
+    story(new CustomerWithPassport(age)).order(_.order(Ale))
     story(new CustomerWithPassport(13)).order(_.order(Milk))
   }
 
